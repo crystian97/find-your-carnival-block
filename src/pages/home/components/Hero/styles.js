@@ -7,7 +7,7 @@ export const HeroContainer = styled.header`
 
 export const SubTitle = styled.sub`
   font-size: 16px;
-  color: ${(props) => props.theme["icons"]};
+  color: ${(props) => props.theme["red"]};
   text-transform: uppercase;
 `;
 
@@ -50,18 +50,22 @@ export const InputSearch = styled.div`
     display: flex;
     background-color: ${(props) => props.theme["gray-300 "]};
     padding-left: 50px;
+    padding-right: 50px;
     color: ${(props) => props.theme["gray-500"]};
     background-color: ${(props) => props.theme["gray-200"]};
     border-radius: 5px;
     border: none;
+    outline-color: ${(props) => props.theme["red"]};
   }
   &::placeholder {
     color: ${(props) => props.theme["gray-500"]};
   }
+  &:focus {
+  }
   svg {
     position: absolute;
     /* topo | direita | inferior | esquerda */
-    color: ${(props) => props.theme["icons"]};
+    color: ${(props) => props.theme["red"]};
     margin: 12px 0px 12px 14px;
   }
 `;
@@ -72,4 +76,18 @@ export const IlustraOne = styled.img`
 export const IlustraTwo = styled.img`
   display: flex;
   align-self: flex-end;
+`;
+
+export const SearchNowButton = styled.button`
+  background-color: ${(props) => props.theme["primary"]};
+  color: ${(props) => props.theme["white"]};
+  padding: 12px 32px;
+  width: 169px;
+  height: 48px;
+  border: none;
+  outline-color: ${(props) => props.theme["red"]};
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
