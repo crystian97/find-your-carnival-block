@@ -1,6 +1,6 @@
 const defaultTheme = {
   primary: "#6246EA",
-  icons: "#E45858",
+  red: "#E45858",
   text: "#121214",
   white: "#FFFFFF",
   "gray-100": "#EAEAEA",
