@@ -10,6 +10,7 @@ import {
   IlustraOne,
   IlustraTwo,
   InputSearch,
+  SearchNowButton,
   SubTitle,
   Title,
 } from "./styles";
@@ -32,7 +33,7 @@ export default function Hero() {
             <MapPin size={24} />
             <select name="" id=""></select>
           </InputSearch>
-          <button>BUSCAR AGORA</button>
+          <SearchNowButton>Buscar Agora</SearchNowButton>
         </ContentSearch>
       </Content>
       <IlustraTwo src={Ilustra2} />
