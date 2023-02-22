@@ -13,7 +13,7 @@ import {
   ListBlocksCarnival,
 } from "./styles";
 
-export default function Content() {
+export default function Content({ blocks }) {
   return (
     <ContentWrapper>
       <ContentContainer>
@@ -25,84 +25,18 @@ export default function Content() {
           </ButtonSelect>
         </ContentHeader>
         <ListBlocksCarnival>
-          <Card>
-            <CardImageHeader src="https://images.unsplash.com/photo-1639456146075-b35c160d13c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3NzAwMjEwNw&ixlib=rb-4.0.3&q=80&w=1080" />
-            <CardBody>
-              <h1>O Python do vovô não sobe mais</h1>
-              <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint.
-              </p>
-            </CardBody>
-            <CardFooter>
-              <MapPin size={21} /> <span>São Paulo - SP</span>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardImageHeader src="https://images.unsplash.com/photo-1639456146075-b35c160d13c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3NzAwMjEwNw&ixlib=rb-4.0.3&q=80&w=1080" />
-            <CardBody>
-              <h1>O Python do vovô não sobe mais</h1>
-              <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint.
-              </p>
-            </CardBody>
-            <CardFooter>
-              <MapPin size={21} /> <span>São Paulo - SP</span>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardImageHeader src="https://images.unsplash.com/photo-1639456146075-b35c160d13c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3NzAwMjEwNw&ixlib=rb-4.0.3&q=80&w=1080" />
-            <CardBody>
-              <h1>O Python do vovô não sobe mais</h1>
-              <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint.
-              </p>
-            </CardBody>
-            <CardFooter>
-              <MapPin size={21} /> <span>São Paulo - SP</span>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardImageHeader src="https://images.unsplash.com/photo-1639456146075-b35c160d13c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3NzAwMjEwNw&ixlib=rb-4.0.3&q=80&w=1080" />
-            <CardBody>
-              <h1>O Python do vovô não sobe mais</h1>
-              <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint.
-              </p>
-            </CardBody>
-            <CardFooter>
-              <MapPin size={21} /> <span>São Paulo - SP</span>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardImageHeader src="https://images.unsplash.com/photo-1639456146075-b35c160d13c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3NzAwMjEwNw&ixlib=rb-4.0.3&q=80&w=1080" />
-            <CardBody>
-              <h1>O Python do vovô não sobe mais</h1>
-              <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint.
-              </p>
-            </CardBody>
-            <CardFooter>
-              <MapPin size={21} /> <span>São Paulo - SP</span>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardImageHeader src="https://images.unsplash.com/photo-1639456146075-b35c160d13c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3NzAwMjEwNw&ixlib=rb-4.0.3&q=80&w=1080" />
-            <CardBody>
-              <h1>O Python do vovô não sobe mais</h1>
-              <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint.
-              </p>
-            </CardBody>
-            <CardFooter>
-              <MapPin size={21} /> <span>São Paulo - SP</span>
-            </CardFooter>
-          </Card>
+          {blocks.map((block) => (
+            <Card key={block.id}>
+              <CardImageHeader src={block.imgUrl} />
+              <CardBody>
+                <h1>{block.name}</h1>
+                <p>{block.description}</p>
+              </CardBody>
+              <CardFooter>
+                <MapPin size={21} /> <span>{block.localization}</span>
+              </CardFooter>
+            </Card>
+          ))}
         </ListBlocksCarnival>
       </ContentContainer>
     </ContentWrapper>
