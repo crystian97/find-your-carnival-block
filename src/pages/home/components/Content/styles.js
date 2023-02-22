@@ -45,3 +45,51 @@ export const ButtonSelectLayout = styled.button`
     cursor: not-allowed;
   }
 `;
+export const ListBlocksCarnival = styled.main`
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+
+export const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 384px;
+  height: 323px;
+  padding: 16px;
+  border-radius: 10px;
+  gap: 16px;
+  overflow: hidden;
+`;
+
+export const CardImageHeader = styled.img`
+  width: 384px;
+  height: 153px;
+  z-index: 3;
+`;
+
+export const CardBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  h1 {
+    color: ${(props) => props.theme["text"]};
+    font-size: 20px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 16px;
+    color: ${(props) => props.theme["text"]};
+  }
+`;
+
+export const CardFooter = styled.div`
+  display: flex;
+  gap: 8px;
+  svg {
+    color: ${(props) => props.theme["red"]};
+  }
+`;
