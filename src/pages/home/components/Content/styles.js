@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContentWrapper = styled.div`
   width: 100%;
   background-color: ${(props) => props.theme["white"]};
-  padding: 100px 112px 112px;
+  padding: 100px 112px;
 `;
 export const ContentContainer = styled.main`
   flex-direction: column;
