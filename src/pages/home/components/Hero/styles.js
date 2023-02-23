@@ -90,4 +90,7 @@ export const SearchNowButton = styled.button`
   &:hover {
     cursor: pointer;
   }
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;

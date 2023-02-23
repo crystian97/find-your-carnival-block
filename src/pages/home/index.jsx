@@ -7,13 +7,7 @@ import Hero from "./components/Hero";
 import { HomeContainer } from "./styles";
 
 const Home = () => {
-  const { blocks, setBlocks } = useContext(CarnivalBlocksContext);
-  async function getBlocks(q) {
-    await api.get("/carnival-blocks").then((response) => {
-      const b = response.data;
-      setBlocks(b);
-    });
-  }
+  const { blocks, getBlocks } = useContext(CarnivalBlocksContext);
   useEffect(() => {
     getBlocks();
   }, []);

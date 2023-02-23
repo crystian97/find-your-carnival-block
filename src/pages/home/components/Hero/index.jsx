@@ -17,16 +17,20 @@ import {
   Title,
 } from "./styles";
 export default function Hero() {
-  const { blocks, setBlocks } = useContext(CarnivalBlocksContext);
+  const { setBlocks, getLocations, locations } = useContext(
+    CarnivalBlocksContext
+  );
   const [searchQuery, setSearchQuery] = useState("");
+  const [location, setLocation] = useState("São Paulo - SP");
   function Search() {
-    SearchBlocks(searchQuery);
+    SearchBlocks(searchQuery, location);
   }
-  async function SearchBlocks(q) {
+  async function SearchBlocks(s, l) {
     await api
       .get("/carnival-blocks", {
         params: {
-          q,
+          name: s,
+          localization: l,
         },
       })
       .then((response) => {
@@ -34,7 +38,9 @@ export default function Hero() {
         setBlocks(b);
       });
   }
-
+  useEffect(() => {
+    getLocations();
+  }, [locations]);
   return (
     <HeroContainer>
       <IlustraOne src={Ilustra1} />
@@ -56,9 +62,24 @@ export default function Hero() {
           </InputSearch>
           <InputSearch>
             <MapPin size={24} />
-            <select name="" id=""></select>
+            <select
+              name="location"
+              id="location"
+              onChange={(event) => {
+                setLocation(event.target.value);
+              }}
+            >
+              {locations.map((localization) => (
+                <option value={localization}>{localization}</option>
+              ))}
+            </select>
           </InputSearch>
-          <SearchNowButton onClick={Search}>Buscar Agora</SearchNowButton>
+          <SearchNowButton
+            disabled={!searchQuery || !location}
+            onClick={Search}
+          >
+            Buscar Agora
+          </SearchNowButton>
         </ContentSearch>
       </Content>
       <IlustraTwo src={Ilustra2} />
