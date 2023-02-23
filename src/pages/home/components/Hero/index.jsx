@@ -4,7 +4,6 @@ import Ilustra1 from "../../../../assets/img/ilustra-01.png";
 import Ilustra2 from "../../../../assets/img/ilustra-02.png";
 import { CarnivalBlocksContext } from "../../../../Contexts/CarnivalBlockContext";
 import { api } from "../../../../libs/api/axios";
-
 import {
   Content,
   ContentSearch,
