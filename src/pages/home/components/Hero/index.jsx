@@ -1,7 +1,9 @@
 import { MagnifyingGlass, MapPin, MapPinLine } from "phosphor-react";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Ilustra1 from "../../../../assets/img/ilustra-01.png";
 import Ilustra2 from "../../../../assets/img/ilustra-02.png";
+import { CarnivalBlocksContext } from "../../../../Contexts/CarnivalBlockContext";
+import { api } from "../../../../libs/api/axios";
 
 import {
   Content,
@@ -15,6 +17,24 @@ import {
   Title,
 } from "./styles";
 export default function Hero() {
+  const { blocks, setBlocks } = useContext(CarnivalBlocksContext);
+  const [searchQuery, setSearchQuery] = useState("");
+  function Search() {
+    SearchBlocks(searchQuery);
+  }
+  async function SearchBlocks(q) {
+    await api
+      .get("/carnival-blocks", {
+        params: {
+          q,
+        },
+      })
+      .then((response) => {
+        const b = response.data;
+        setBlocks(b);
+      });
+  }
+
   return (
     <HeroContainer>
       <IlustraOne src={Ilustra1} />
@@ -27,13 +47,18 @@ export default function Hero() {
         <ContentSearch>
           <InputSearch>
             <MagnifyingGlass size={24} />
-            <input type="text" />
+            <input
+              type="text"
+              onChange={(event) => {
+                setSearchQuery(event.target.value);
+              }}
+            />
           </InputSearch>
           <InputSearch>
             <MapPin size={24} />
             <select name="" id=""></select>
           </InputSearch>
-          <SearchNowButton>Buscar Agora</SearchNowButton>
+          <SearchNowButton onClick={Search}>Buscar Agora</SearchNowButton>
         </ContentSearch>
       </Content>
       <IlustraTwo src={Ilustra2} />
